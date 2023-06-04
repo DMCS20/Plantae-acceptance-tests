@@ -1,36 +1,40 @@
-Epic: Edición de perfil y gestión de cuenta
+Epic: Guía paso a paso para el cuidado de las plantas
 
-US 13
-Feature: Editar perfil de usuario
-  Como usuario, quiero poder editar los datos de mi perfil.
-
-  Scenario: Editar datos de perfil
-    Given que el usuario <Usuario> se encuentra en el menú principal
-    And le da click a la opción "Perfil"
-    Then el sistema mostrará los campos del perfil en una forma editable
-    When el usuario <Usuario> realiza cambios y hace clic en "Guardar"
-    Then los cambios se guardan y se muestra mensaje de confirmación
-
-Examples:
-| Usuario   |
-| Juan  |
-| María  |
-
-US 07
-Feature: Administracion de cuenta de usuario 
+US 08
+Feature: Pasos para plantar una semilla en un espacio nuevo 08
 
     Como <usuario>
-    Quiero registrarme en la app
-    Para que mis datos y preferencias sean almacenadas en la nube 
+    Quiero saber como plantar una planta
+    Para darle un adecuado cuidado como preparacion de la tierra
     
-    Scenario: Visualiza la pantalla de registro de nuevo usuario
-        Given que el <usuario> ingresa en la app "Plantae"
-        And hace clik en el boton "Registrate"
-        When ingresa sus datos personales
-        Then el <usuario> podria iniciar sesion con su cuenta recientement creada
+    Scenario: Quiere plantar una nueva planta en un macetero 
+        Given que el <usuario> ingresa a la app "Plantae"
+        And hace clik en boton "Mis plantas"
+        And ahce clik en "agregar", para luego seleccionar una nueva semilla 
+        And escoge la especie de la misma
+        When ingresa a los datos le aparece videos 
+        And pasos a seguir para su cuidado
+        Then el <usuario> podra plantar la nueva semilla de una manera adecuada
 
         Examples:
-            |   usuario  |   nombre   |  apellido  | 
-            | Alejandro  | Alejandro  |  Martinez  |
-            |   Camila   |   Camila   |    Rojas   |
+            | usuario |   planta  |
+            |  Juan   |  Girasol  |
+            | Carlos  | Echevaria |
+US 11
+Feature: Cosecha de Vegetales
+  Como usuario, quiero saber en qué momento debo cosechar los vegetales para tener un buen producto.
+
+  Scenario: Observar tiempo de cosecha de vegetales
+    Given que el <usuario> ingresa a la app Plantae
+    And hace click en "Mis Plantas"
+    And hace click en "Cronología"
+    And selecciona el  <vegetal> plantado
+    When observo el tiempo en el que se cosecha los vegetales en "cronología"
+    Then el usuario podrá hacer una buena cosecha y no malograr el vegetal
+
+Examples:
+| usuario  | vegetal   |
+| John     | Tomate    |
+| Camila   | Lechuga   |
+| Alejandro| Zanahoria |
 
