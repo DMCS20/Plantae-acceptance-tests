@@ -66,12 +66,57 @@ Examples:
 | María  |
 Epic: Exploración de opiniones y comentarios
 
-Como usuario, quiero poder visualizar la sección de opiniones o comentarios de las floristerías recomendadas para tomar decisiones informadas.
+US 15
+Feature: Visualizar la sección opiniones o comentarios de cada floristería recomendada
+  Como usuario quiero poder visualizar la sección de comentarios para poder elegir a qué centro sería mejor dirigirme.
+
+  Scenario: Visualizar sección de comentarios de una floristería recomendada
+    Given que el usuario <Usuario> entra a la aplicación
+    And se dirige a la sección tiendas aliadas
+    And visualiza el botón comentarios
+    When el usuario da click en el botón
+    Then se mostrará un panel con todos los comentarios de otros usuarios con respecto a esa tienda
+
+Examples:
+| Usuario   |
+| <Juan>    |
+| <María>   |
+
 Epic: Edición de perfil y gestión de cuenta
 
-Como usuario, quiero poder editar los datos de mi perfil para mantener mi información actualizada.
+US 13
+Feature: Editar perfil de usuario
+  Como usuario, quiero poder editar los datos de mi perfil.
 
-Como usuario, quiero poder administrar mi cuenta, incluyendo el registro y acceso a la aplicación.
+  Scenario: Editar datos de perfil
+    Given que el usuario <Usuario> se encuentra en el menú principal
+    And le da click a la opción "Perfil"
+    Then el sistema mostrará los campos del perfil en una forma editable
+    When el usuario <Usuario> realiza cambios y hace clic en "Guardar"
+    Then los cambios se guardan y se muestra mensaje de confirmación
+
+Examples:
+| Usuario   |
+| Juan  |
+| María  |
+
+US 07
+Feature: Administracion de cuenta de usuario 
+
+    Como <usuario>
+    Quiero registrarme en la app
+    Para que mis datos y preferencias sean almacenadas en la nube 
+    
+    Scenario: Visualiza la pantalla de registro de nuevo usuario
+        Given que el <usuario> ingresa en la app "Plantae"
+        And hace clik en el boton "Registrate"
+        When ingresa sus datos personales
+        Then el <usuario> podria iniciar sesion con su cuenta recientement creada
+
+        Examples:
+            |   usuario  |   nombre   |  apellido  | 
+            | Alejandro  | Alejandro  |  Martinez  |
+            |   Camila   |   Camila   |    Rojas   |
 
 Epic: Búsqueda y adquisición de plantas e implementos
 
